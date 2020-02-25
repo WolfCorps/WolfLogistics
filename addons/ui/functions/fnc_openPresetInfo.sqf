@@ -1,7 +1,7 @@
 #include "script_component.hpp"
 /*
  * Author: dedmen
- * Opens the Preset info UI
+ * Opens the Preset info UI just showing info about existing loadouts
  *
  * Arguments:
  *

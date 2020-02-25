@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 #include "..\ui\IDs.hpp"
 /*
- * Author: Alganthe
- * Save selected loadout.
+ * Author: Alganthe, Dedmen
+ * Save selected preset to server as temporary.
  *
  * Arguments:
  * 0: Arsenal display <DISPLAY>

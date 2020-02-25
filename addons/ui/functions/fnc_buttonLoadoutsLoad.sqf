@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 #include "..\ui\IDs.hpp"
 /*
- * Author: Alganthe
- * Load selected loadout.
+ * Author: Dedmen
+ * Pack choosen preset into current box
  *
  * Arguments:
  * 0: Arsenal display <DISPLAY>

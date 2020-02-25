@@ -73,15 +73,14 @@ class GVAR(loadoutInfo) {
                 //    sizeEx = QUOTE(5 * GRID_H);
                 //    colorBackground[]={0,0,0,0.2};
                 //};
-                //class textEditBox: ctrlEdit {
-                //    idc= IDC_textEditBox;
-                //    x = QUOTE(15 * GRID_W);
-                //    y = QUOTE(safezoneH - (51 * GRID_H));
-                //    w = QUOTE(65 * GRID_W);
-                //    h = QUOTE(5 * GRID_H);
-                //    sizeEx = QUOTE(6 * GRID_H);
-                //};
-
+                class textEditBox: ctrlEdit {
+                    idc= IDC_textEditBox;
+                    x = QUOTE(15 * GRID_W);
+                    y = QUOTE(safezoneH - (51 * GRID_H));
+                    w = QUOTE(65 * GRID_W);
+                    h = QUOTE(5 * GRID_H);
+                    sizeEx = QUOTE(6 * GRID_H);
+                };
                 class loadoutsSearchbar: ctrlEdit {
                     idc = IDC_loadoutsSearchbar;
                     onSetFocus = QUOTE(GVAR(searchbarFocus) = true);
@@ -125,25 +124,27 @@ class GVAR(loadoutInfo) {
                 class buttonLoad: buttonSave {
                     idc = IDC_buttonLoad;
                     x = QUOTE(65 * GRID_W);
+                    w = QUOTE(60 * GRID_W);
                     text = "In Kiste packen";
                     tooltip= "Packt das ausgewählte Paket die Kiste";
                     onButtonClick = QUOTE([ARR_2(ctrlParent (_this select 0), _this select 0)] call FUNC(buttonLoadoutsLoad));
                 };
                 class buttonExport: buttonSave {
                     idc = IDC_buttonShare;
-                    x = QUOTE(97.5 * GRID_W);
+                    x = QUOTE(127.5 * GRID_W);
                     text = "Export";
-                    tooltip= "Export kisteninhalt als Paket in Zwischenablage";
+                    tooltip= "Exportiert Kisteninhalt als Paket in Zwischenablage";
                     onButtonClick = QUOTE([ARR_2(ctrlParent (_this select 0), _this select 0)] call FUNC(buttonLoadoutsExport));
                 };
-                //class buttonDelete: buttonSave {
-                //    idc = IDC_buttonDelete;
-                //    x = QUOTE(130 * GRID_W);
-                //    text= CSTRING(buttonDeleteText);
-                //    tooltip= CSTRING(buttonDeleteTooltip);
-                //    colorBackgroundActive[] = {0.5,0,0,1};
-                //    onButtonClick = QUOTE([ARR_2(ctrlParent (_this select 0), _this select 0)] call FUNC(buttonLoadoutsDelete));
-                //};
+                class buttonDelete: buttonSave {
+                    idc = IDC_buttonDelete;
+                    x = QUOTE(160 * GRID_W);
+                    w = QUOTE(60 * GRID_W);
+                    text = "Leere Kiste";
+                    tooltip = "Löscht den gesamten Inhalt der Kiste";
+                    colorBackgroundActive[] = {0.5,0,0,1};
+                    onButtonClick = QUOTE([ARR_2(ctrlParent (_this select 0), _this select 0)] call FUNC(buttonLoadoutsClearBox));
+                };
             };
         };
         class buttonClose: ctrlButton {
