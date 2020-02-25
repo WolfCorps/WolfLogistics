@@ -63,16 +63,16 @@ class GVAR(loadoutInfo) {
                     h = QUOTE(safezoneH - (57 * GRID_H));
                     sizeEx = QUOTE(7 * GRID_H);
                 };
-                //class textTitle: RscText {
-                //    idc= -1;
-                //    text="$STR_DISP_GAME_NAME";
-                //    x = QUOTE(0 * GRID_W);
-                //    y = QUOTE(safezoneH - (51 * GRID_H));
-                //    w = QUOTE(15 * GRID_W);
-                //    h = QUOTE(5 * GRID_H);
-                //    sizeEx = QUOTE(5 * GRID_H);
-                //    colorBackground[]={0,0,0,0.2};
-                //};
+                class textTitle: RscText {
+                    idc= -1;
+                    text="$STR_DISP_GAME_NAME";
+                    x = QUOTE(0 * GRID_W);
+                    y = QUOTE(safezoneH - (51 * GRID_H));
+                    w = QUOTE(15 * GRID_W);
+                    h = QUOTE(5 * GRID_H);
+                    sizeEx = QUOTE(5 * GRID_H);
+                    colorBackground[]={0,0,0,0.2};
+                };
                 class textEditBox: ctrlEdit {
                     idc= IDC_textEditBox;
                     x = QUOTE(15 * GRID_W);
