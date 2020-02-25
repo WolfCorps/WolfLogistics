@@ -23,7 +23,7 @@ class CfgVehicles {
     class Man;
     class CAManBase: Man {
         class ACE_Actions {
-            class ACE_MainActions {
+            class ACE_SelfActions {
                 class GVAR(aceself) {
                     displayName = "Wolf Logistik";
                     condition = QUOTE(true);

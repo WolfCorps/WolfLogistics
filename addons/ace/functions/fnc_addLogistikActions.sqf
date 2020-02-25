@@ -23,6 +23,10 @@ params ["_target"];
         [QGVAR(openLogistikMenu), "Öffne Logistikmenü", "", {_target call wolf_logistics_ui_fnc_openLogistikMenuOnBox;}, {true}, {}] call ace_interact_menu_fnc_createAction,
         [],
         _target
+    ],
+    [
+        [QGVAR(openLogistikMenu), "Rucksack in Kiste leeren", "", {_target call wolf_logistics_ace_fnc_emptyBackpackIntoBox;}, {true}, {}] call ace_interact_menu_fnc_createAction,
+        [],
+        _target
     ]
-
 ]
