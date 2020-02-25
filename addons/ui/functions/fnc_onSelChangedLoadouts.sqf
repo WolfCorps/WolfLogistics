@@ -18,7 +18,7 @@ params ["_display", "_control", "_curSel"];
 
 private _saveButtonCtrl = _display displayCtrl IDC_buttonSave;
 private _loadButtonCtrl = _display displayCtrl IDC_buttonLoad;
-private _deleteButtonCtrl = _display displayCtrl IDC_buttonDelete;
+private _clearBoxButtonCtrl = _display displayCtrl IDC_buttonDelete;
 private _exportButtonCtrl = _display displayCtrl IDC_buttonShare;
 //private _renameButtonCtrl = _display displayCtrl IDC_buttonRename;
 private _loadoutInfoCtrl = _display displayCtrl IDC_loadoutInfo;
@@ -39,25 +39,25 @@ if (GVAR(center) isEqualTo objNull) exitWith {
     {
         _x ctrlEnable false;
         _x ctrlCommit 0;
-    } foreach [_saveButtonCtrl, _loadButtonCtrl, _deleteButtonCtrl, _exportButtonCtrl];
+    } foreach [_saveButtonCtrl, _loadButtonCtrl, _clearBoxButtonCtrl, _exportButtonCtrl];
 };
 
 if (_curSel == -1) exitWith {
     {
         _x ctrlEnable true;
         _x ctrlCommit 0;
-    } foreach [_exportButtonCtrl, _saveButtonCtrl];
+    } foreach [_exportButtonCtrl, _saveButtonCtrl, _clearBoxButtonCtrl];
 
     {
         _x ctrlEnable false;
         _x ctrlCommit 0;
-    } foreach [_loadButtonCtrl, _deleteButtonCtrl];
+    } foreach [_loadButtonCtrl];
 };
 
 {
     _x ctrlEnable true;
     _x ctrlCommit 0;
-} foreach [_loadButtonCtrl, _deleteButtonCtrl];
+} foreach [_loadButtonCtrl, _clearBoxButtonCtrl];
 
 
 

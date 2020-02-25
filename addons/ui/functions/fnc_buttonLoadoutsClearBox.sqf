@@ -15,5 +15,6 @@
 
 clearWeaponCargoGlobal GVAR(center);
 clearItemCargoGlobal GVAR(center);
+clearMagazineCargoGlobal GVAR(center);
 
 "Kiste wurde geleert" call CBA_fnc_notify;

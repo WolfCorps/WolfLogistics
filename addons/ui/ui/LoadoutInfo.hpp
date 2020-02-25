@@ -138,8 +138,7 @@ class GVAR(loadoutInfo) {
                 };
                 class buttonDelete: buttonSave {
                     idc = IDC_buttonDelete;
-                    x = QUOTE(160 * GRID_W);
-                    w = QUOTE(60 * GRID_W);
+                    x = QUOTE(32.5 * GRID_W);
                     text = "Leere Kiste";
                     tooltip = "Löscht den gesamten Inhalt der Kiste";
                     colorBackgroundActive[] = {0.5,0,0,1};

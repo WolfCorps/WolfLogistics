@@ -1,5 +1,6 @@
 
 
+PREP(buttonLoadoutsClearBox);
 PREP(buttonLoadoutsExport);
 PREP(buttonLoadoutsLoad);
 PREP(buttonLoadoutsSave);
