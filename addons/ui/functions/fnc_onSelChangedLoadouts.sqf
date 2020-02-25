@@ -21,7 +21,7 @@ private _loadButtonCtrl = _display displayCtrl IDC_buttonLoad;
 private _deleteButtonCtrl = _display displayCtrl IDC_buttonDelete;
 private _renameButtonCtrl = _display displayCtrl IDC_buttonRename;
 private _loadoutInfoCtrl = _display displayCtrl IDC_loadoutInfo;
-//private _textEditBoxCtrl = _display displayCtrl IDC_textEditBox;
+private _textEditBoxCtrl = _display displayCtrl IDC_textEditBox;
 
 
 private _contentPanelCtrl = _display displayCtrl IDC_contentPanel;
@@ -49,5 +49,5 @@ _loadButtonCtrl ctrlCommit 0;
 } foreach [_renameButtonCtrl, _deleteButtonCtrl];
 
 
-//_textEditBoxCtrl ctrlSetText (_control lnbText [_curSel, 1]);
+_textEditBoxCtrl ctrlSetText (_control lnbText [_curSel, 1]);
 

@@ -25,3 +25,5 @@ private _loadoutName = _contentPanelCtrl lnbText [_curSel, 1];
 private _loadout = _contentPanelCtrl getVariable _loadoutName;
 
 [GVAR(center), _loadout] call wolf_logistics_main_fnc_fillPresetIntoBox;
+
+"Loadout wurde in Kiste gepackt" call CBA_fnc_notify;

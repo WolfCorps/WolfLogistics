@@ -2,6 +2,7 @@
 
 PREP(buttonLoadoutsExport);
 PREP(buttonLoadoutsLoad);
+PREP(buttonLoadoutsSave);
 PREP(fillLoadoutsList);
 PREP(handleLoadoutsSearchbar);
 PREP(onLoadoutInfoOpen);
