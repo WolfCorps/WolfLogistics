@@ -20,7 +20,7 @@ GVAR(presets) = [
 ];
 
 ["wolf_logistics_newPreset", {
-	//_this is a preset
+    //_this is a preset
     params ["_presetName"];
 
     private _loadoutIndex = GVAR(presets) findIf {(_x select 0) == _presetName};

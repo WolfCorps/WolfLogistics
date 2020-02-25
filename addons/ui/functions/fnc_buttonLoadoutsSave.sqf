@@ -22,7 +22,7 @@ private _editBoxCtrl = _display displayCtrl IDC_textEditBox;
 private _editBoxContent = ctrlText _editBoxCtrl;
 
 if (_editBoxContent == "") exitWith {
-	"Kann nicht mit leerem Namen speichern" call CBA_fnc_notify;
+    "Kann nicht mit leerem Namen speichern" call CBA_fnc_notify;
 };
 
 private _data = GVAR(presets);
@@ -40,7 +40,7 @@ private _loadoutIndex = _data findIf {(_x select 0) == _editBoxContent};
 
 // Delete "old" loadout row
 for '_i' from 0 to (((lnbsize _contentPanelCtrl) select 0) - 1) do {
-	if ((_contentPanelCtrl lnbText [_i, 1]) == _editBoxContent) exitwith {_contentPanelCtrl lnbDeleteRow _i};
+    if ((_contentPanelCtrl lnbText [_i, 1]) == _editBoxContent) exitwith {_contentPanelCtrl lnbDeleteRow _i};
 };
 
 private _newRow = _contentPanelCtrl lnbAddRow ["",_editBoxContent];
@@ -52,7 +52,7 @@ _contentPanelCtrl lnbSort [1, false];
 
 // Select newly saved loadout
 for '_i' from 0 to (((lnbsize _contentPanelCtrl) select 0) - 1) do {
-	if ((_contentPanelCtrl lnbText [_i, 1]) == _editBoxContent) exitwith {_contentPanelCtrl lnbSetCurSelRow _i};
+    if ((_contentPanelCtrl lnbText [_i, 1]) == _editBoxContent) exitwith {_contentPanelCtrl lnbSetCurSelRow _i};
 };
 
 "Loadout wurde Temporär gespeichert" call CBA_fnc_notify;
