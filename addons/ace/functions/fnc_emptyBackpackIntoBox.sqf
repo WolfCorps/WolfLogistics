@@ -18,21 +18,20 @@
 params ["_target"];
 
 {
-	_target addWeaponWithAttachmentsCargoGlobal _x;
+    _target addWeaponWithAttachmentsCargoGlobal [_x, 1];
 } forEach weaponsItemsCargo backpackContainer ACE_Player;
 
 private _magazineCargo = getMagazineCargo backpackContainer ACE_Player;
 
 {
-	_target addItemCargoGlobal [_x, (_magazineCargo select 1) select _forEachIndex];
+    _target addItemCargoGlobal [_x, (_magazineCargo select 1) select _forEachIndex];
 } forEach (_magazineCargo select 0);
 
 
 private _itemCargo = getItemCargo backpackContainer ACE_Player;
 
 {
-	_target addItemCargoGlobal [_x, (_itemCargo select 1) select _forEachIndex];
+    _target addItemCargoGlobal [_x, (_itemCargo select 1) select _forEachIndex];
 } forEach (_itemCargo select 0);
 
-clearWeaponCargoGlobal backpackContainer ACE_Player;
-clearItemCargoGlobal backpackContainer ACE_Player;
+clearAllItemsFromBackpack ACE_Player;

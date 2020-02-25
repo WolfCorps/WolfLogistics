@@ -3,8 +3,6 @@
 params ["_object"];
 private _type = typeOf _object;
 
-diag_log ["initObject", _object];
-
 private _canLoadConfig = getNumber (configFile >> "CfgVehicles" >> _type >> "maximumLoad") > 1;
 
 // Nothing to do here if object can't be loaded

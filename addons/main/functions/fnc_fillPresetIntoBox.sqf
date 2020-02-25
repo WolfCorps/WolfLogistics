@@ -23,7 +23,7 @@ _preset params ["_presetName","_presetDescription","_presetContents"];
 
 {
     if (count _x > 2) then { //Weapon
-        _target addWeaponWithAttachmentsCargoGlobal _x;
+        _target addWeaponWithAttachmentsCargoGlobal [_x, 1];
     } else { //Item
         _x params ["_class", "_count"];
         _target addItemCargoGlobal [_class, _count];
