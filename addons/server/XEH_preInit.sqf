@@ -13,8 +13,21 @@ ADDON = true;
 
 GVAR(presets) = [
 
-["new Preset","This is a preset",[["ACE_fieldDressing",25],["ACE_packingBandage",25],["ACE_elasticBandage",25],["ACE_tourniquet",15],["ACE_splint",15],["ACE_morphine",15],["ACE_adenosine",15],["ACE_epinephrine",15],["ACE_plasmaIV",7],["ACE_plasmaIV_500",7],["ACE_plasmaIV_250",7],["ACE_salineIV",7],["ACE_salineIV_500",7],["ACE_salineIV_250",7],["ACE_bloodIV",7],["ACE_bloodIV_500",7],["ACE_bloodIV_250",7],["ACE_quikclot",20],["ACE_personalAidKit",3],["ACE_surgicalKit",2],["ACE_bodyBag",5]]]
-
+,["STANAG x4","STANAG magazines, Tracer and normal, 4 soldiers",[["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red",20],["rhs_mag_30Rnd_556x45_M855A1_Stanag",20]]]
+,["M4 x4","M4 weapons x4 + EOTech scope with magnifier + laser",[["rhs_weap_m4a1","","ACE_acc_pointer_green_IR","RH_eotech553mag",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_m4a1","","ACE_acc_pointer_green_IR","RH_eotech553mag",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_m4a1","","ACE_acc_pointer_green_IR","RH_eotech553mag",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_m4a1","","ACE_acc_pointer_green_IR","RH_eotech553mag",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""]]]
+,["M249 x2","M249 LMG x2 + MRCO Scope + laser",[["rhs_weap_m249_light_S","","ACE_acc_pointer_green_IR","ACE_optic_MRCO_2D",["rhs_200rnd_556x45_M_SAW",200],[],"rhsusf_acc_saw_bipod"],["rhs_weap_m249_light_S","","ACE_acc_pointer_green_IR","ACE_optic_MRCO_2D",["rhs_200rnd_556x45_M_SAW",200],[],"rhsusf_acc_saw_bipod"]]]
+,["M249 Ammo x2","2000 rounds of mixed 5.56 in 200 round mags",[["rhs_200rnd_556x45_M_SAW",10]]]
+,["40mm standard x2","40mm explosive, smoke, coloured smoke, 2 soldiers",[["UK3CB_BAF_1Rnd_HEDP_Grenade_Shell",40],["UK3CB_BAF_1Rnd_SmokeRed_Grenade_shell",6],["UK3CB_BAF_1Rnd_Smoke_Grenade_shell",6],["UK3CB_BAF_1Rnd_SmokeBlue_Grenade_shell",6]]]
+,["40mm flare x2","40mm flares + coloured flares, 2 soldiers",[["UK3CB_BAF_UGL_FlareWhite_F",20],["UK3CB_BAF_UGL_FlareRed_F",10],["UK3CB_BAF_UGL_FlareGreen_F",6]]]
+,["Nachtkampf BW x4","Nachtsicht und Nachtkampfausrüstung für 4 Soldaten",[["ACE_Vector","","","",[],[],""],["ACE_Vector","","","",[],[],""],["ACE_Vector","","","",[],[],""],["ACE_Vector","","","",[],[],""],["Chemlight_red",20],["ACE_Chemlight_HiRed",20],["A3_GPNVG18_BLK_F",4],["BWA3_optic_ZO4x30_MicroT2_NSV_pip",4],["ACE_acc_pointer_green_IR",4],["ACE_IR_Strobe_Item",4],["BWA3_optic_NSV600",4],["ACE_Flashlight_XL50",4]]]
+,["M240 Ammo x2","2000 mixed tracer rounds of 7.62 in 100 round mags for m240 mg",[["rhsusf_100Rnd_762x51",20]]]
+,["grenade mixed x4","Mix of throwable assets, lights, fragmentation, concussion, flash,smoke, coloured smoke, 4 soldiers",[["ACE_Chemlight_HiRed",20],["Chemlight_green",12],["Chemlight_red",12],["ACE_Chemlight_IR",12],["B_IR_Grenade",8],["SmokeShellGreen",4],["SmokeShellRed",4],["SmokeShellBlue",4],["SmokeShell",16],["ACE_M84",8],["HandGrenade",16],["rhs_mag_mk3a2",8]]]
+,["AT light","M136 2x HEAT, 1x HP, AT Launcher pack",[["rhs_weap_M136","","","",[],[],""],["rhs_weap_M136_hp","","","",[],[],""],["rhs_weap_M136","","","",["rhs_m136_mag",1],[],""]]]
+,["AA x1","Stinger AA Launcher, 5 shots",[["rhs_weap_fim92","","","",["rhs_fim92_mag",1],[],""],["rhs_fim92_mag",4]]]
+,["Javelin x1","Javelin Launcher + 3 shots",[["rhs_weap_fgm148","","","",["rhs_fgm148_magazine_AT",1],[],""],["rhs_fgm148_magazine_AT",2]]]
+,["Javelin Ammo x3","3 shot Javelin missile",[["rhs_fgm148_magazine_AT",3]]]
+,["SMAW Ammo x1","SMAW Ammo, 2x HEAA, 2x HEDP,3x Spotting rounds",[["rhs_mag_smaw_HEAA",2],["rhs_mag_smaw_HEDP",2],["rhs_mag_smaw_SR",3]]]
+,["SMAW x1","SMAW launcher + ammo pack, 2x HEAA,2x HEDP,3x Spotting rounds",[["rhs_weap_smaw_green","","acc_pointer_IR","rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA",1],[],""],["rhs_mag_smaw_HEAA",1],["rhs_mag_smaw_HEDP",2],["rhs_mag_smaw_SR",3]]]
 
 
 ];
