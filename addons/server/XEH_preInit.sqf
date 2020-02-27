@@ -13,7 +13,7 @@ ADDON = true;
 
 GVAR(presets) = [
 
-,["STANAG x4","STANAG magazines, Tracer and normal, 4 soldiers",[["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red",20],["rhs_mag_30Rnd_556x45_M855A1_Stanag",20]]]
+["STANAG x4","STANAG magazines, Tracer and normal, 4 soldiers",[["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red",20],["rhs_mag_30Rnd_556x45_M855A1_Stanag",20]]]
 ,["M4 x4","M4 weapons x4 + EOTech scope with magnifier + laser",[["rhs_weap_m4a1","","ACE_acc_pointer_green_IR","RH_eotech553mag",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_m4a1","","ACE_acc_pointer_green_IR","RH_eotech553mag",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_m4a1","","ACE_acc_pointer_green_IR","RH_eotech553mag",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""],["rhs_weap_m4a1","","ACE_acc_pointer_green_IR","RH_eotech553mag",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""]]]
 ,["M249 x2","M249 LMG x2 + MRCO Scope + laser",[["rhs_weap_m249_light_S","","ACE_acc_pointer_green_IR","ACE_optic_MRCO_2D",["rhs_200rnd_556x45_M_SAW",200],[],"rhsusf_acc_saw_bipod"],["rhs_weap_m249_light_S","","ACE_acc_pointer_green_IR","ACE_optic_MRCO_2D",["rhs_200rnd_556x45_M_SAW",200],[],"rhsusf_acc_saw_bipod"]]]
 ,["M249 Ammo x2","2000 rounds of mixed 5.56 in 200 round mags",[["rhs_200rnd_556x45_M_SAW",10]]]
