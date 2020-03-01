@@ -13,7 +13,7 @@ ADDON = true;
 
 GVAR(presets) = [
 
-,["ACE Medical - General Purpose","Medizinisches Preset mit allen notwendigen (ja, auch Torniquets) Materialien zur medizinischen Versorgung.",[["ACE_packingBandage",150],["ACE_elasticBandage",150],["ACE_epinephrine",20],["ACE_morphine",20],["ACE_salineIV_500",10],["ACE_salineIV_250",10],["ACE_surgicalKit",1],["ACE_EarPlugs",2],["ACE_splint",30],["ACE_tourniquet",20],["ACE_quikclot",45]]]
+["ACE Medical - General Purpose","Medizinisches Preset mit allen notwendigen (ja, auch Torniquets) Materialien zur medizinischen Versorgung.",[["ACE_packingBandage",150],["ACE_elasticBandage",150],["ACE_epinephrine",20],["ACE_morphine",20],["ACE_salineIV_500",10],["ACE_salineIV_250",10],["ACE_surgicalKit",1],["ACE_EarPlugs",2],["ACE_splint",30],["ACE_tourniquet",20],["ACE_quikclot",45]]]
 
 
 ,["Bundeswehr - AA - Fliegerfaust","Fliegerfaust mit 3 Raketen",[["BWA3_Fliegerfaust","","","",["BWA3_Fliegerfaust_Mag",1],[],""],["BWA3_Fliegerfaust_Mag",3]]]
