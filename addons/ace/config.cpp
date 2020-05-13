@@ -56,7 +56,7 @@ class ACE_Tags {
 #define LETTER(let) \
 class GVAR(letter_##let) : ACE_XBlack { \
     displayName = Buchstabe - let; \
-    requiredItem = GVAR(spraypaint); \
+    requiredItem = QGVAR(spraypaint); \
     textures[] = {QPATHTOF(data\letter_##let##_ca.paa)}; \
     materials[] = {QPATHTOF(data\letter_##let.rvmat)}; \
     tagModel = "UserTexture10m_F"; \
@@ -76,7 +76,7 @@ class GVAR(letter_##let) : ACE_XBlack { \
 
     class GVAR(pointer) : ACE_XBlack {
         displayName = "Pfeil";
-        requiredItem = GVAR(spraypaint);
+        requiredItem = QGVAR(spraypaint);
         textures[] = {QPATHTOF(data\pointer_ca.paa)};
         materials[] = {QPATHTOF(data\pointer.rvmat)};
         tagModel = "UserTexture10m_F";
