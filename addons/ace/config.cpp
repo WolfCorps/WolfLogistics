@@ -15,10 +15,6 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-
-
-
-
 class CfgVehicles {
     class Man;
     class CAManBase: Man {
@@ -45,3 +41,46 @@ class CfgVehicles {
         };
     };
 };
+
+class CfgWeapons {
+    class ACE_SpraypaintBlack;
+    class GVAR(spraypaint) : ACE_SpraypaintBlack {
+        author = "dedmen";
+        displayName = "Logistik Sprühfarbe";
+    };
+};
+
+class ACE_Tags {
+	class ACE_XBlack;
+
+#define LETTER(let) \
+class GVAR(letter_##let) : ACE_XBlack { \
+    displayName = Buchstabe - let; \
+    requiredItem = GVAR(spraypaint); \
+    textures[] = {QPATHTOF(data\letter_##let##_ca.paa)}; \
+    materials[] = {QPATHTOF(data\letter_##let.rvmat)}; \
+    tagModel = "UserTexture10m_F"; \
+}
+
+    LETTER(A);
+    LETTER(B);
+    LETTER(C);
+    LETTER(D);
+    LETTER(E);
+    LETTER(F);
+    LETTER(G);
+    LETTER(H);
+    LETTER(X);
+    LETTER(Y);
+    LETTER(Z);
+
+    class GVAR(pointer) : ACE_XBlack {
+		displayName = "Pfeil";
+		requiredItem = GVAR(spraypaint);
+		textures[] = {QPATHTOF(data\pointer_ca.paa)};
+		materials[] = {QPATHTOF(data\pointer.rvmat)};
+        tagModel = "UserTexture10m_F";
+	};
+    
+};
+
