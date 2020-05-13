@@ -51,7 +51,7 @@ class CfgWeapons {
 };
 
 class ACE_Tags {
-	class ACE_XBlack;
+    class ACE_XBlack;
 
 #define LETTER(let) \
 class GVAR(letter_##let) : ACE_XBlack { \
@@ -75,12 +75,12 @@ class GVAR(letter_##let) : ACE_XBlack { \
     LETTER(Z);
 
     class GVAR(pointer) : ACE_XBlack {
-		displayName = "Pfeil";
-		requiredItem = GVAR(spraypaint);
-		textures[] = {QPATHTOF(data\pointer_ca.paa)};
-		materials[] = {QPATHTOF(data\pointer.rvmat)};
+        displayName = "Pfeil";
+        requiredItem = GVAR(spraypaint);
+        textures[] = {QPATHTOF(data\pointer_ca.paa)};
+        materials[] = {QPATHTOF(data\pointer.rvmat)};
         tagModel = "UserTexture10m_F";
-	};
+    };
     
 };
 
