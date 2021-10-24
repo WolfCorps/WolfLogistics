@@ -6,10 +6,7 @@ GVAR(initializedItemClasses) = [];
 
 GVAR(objectAction) = [
     QGVAR(logistik), "Wolf Logistik", "a3\ui_f\data\IGUI\Cfg\Actions\loadVehicle_ca.paa",
-    {
-        params ["_target", "_player"];
-        [_player, _target] call FUNC(startLoadIn);
-    },
+    {},
     { //Condition
         ([_player, _target, ["isNotSwimming"]] call ace_common_fnc_canInteractWith) &&
         {count (nearestObjects [_target, GVAR(arsenalTypes), 50]) > 0}
