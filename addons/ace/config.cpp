@@ -84,3 +84,26 @@ class GVAR(letter_##let) : ACE_XBlack { \
     
 };
 
+
+// Make RHS jerrycan usable in ACE https://github.com/acemod/ACE3/pull/8603
+class Extended_InitPost_EventHandlers {
+    class rhsusf_props_JerryCan_Base {
+        class ADDON {
+            init = "call ace_refuel_fnc_makeJerryCan";
+        };
+    };
+};
+
+class CfgVehicles {
+	class Items_base_F;
+    class rhsusf_props_JerryCan_Base: Items_base_F {
+        ace_cargo_size = 1;
+        ace_cargo_canLoad = 1;
+    };
+
+    class ThingX;
+    class FlexibleTank_base_F: ThingX {
+        ace_cargo_size = 3;
+        ace_cargo_canLoad = 1;
+    };
+}; 
