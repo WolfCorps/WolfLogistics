@@ -95,7 +95,7 @@ class Extended_InitPost_EventHandlers {
 };
 
 class CfgVehicles {
-	class Items_base_F;
+    class Items_base_F;
     class rhsusf_props_JerryCan_Base: Items_base_F {
         ace_cargo_size = 1;
         ace_cargo_canLoad = 1;
