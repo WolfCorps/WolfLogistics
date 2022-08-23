@@ -18,7 +18,7 @@
 
 params ["_target", "_preset"];
 
-_preset params ["_presetName","_presetDescription","_presetContents"];
+_preset params ["_presetName","_presetDescription","_presetContents","_presetBackpacks"];
 
 
 {
@@ -29,3 +29,8 @@ _preset params ["_presetName","_presetDescription","_presetContents"];
         _target addItemCargoGlobal [_class, _count];
     }
 } forEach _presetContents;
+
+{
+    _x params ["_type","_count"];
+    _target addBackpackCargoGlobal [_type, _count];
+} forEach _presetBackpacks;
