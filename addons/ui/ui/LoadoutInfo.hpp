@@ -159,16 +159,16 @@ class GVAR(loadoutInfo) {
             onButtonClick = QUOTE(ctrlParent (_this select 0) closeDisplay 2);
         };
 
-        class loadoutInfo: RscStructuredText {
+        class loadoutInfo: RscTree {
             idc = IDC_loadoutInfo;
-            text = "";
+            //text = "";
             //type = 13; //CT_STRUCTURED_TEXT;  // defined constant
-            x = QUOTE(safezoneX + (20 * GRID_W));
+            x = QUOTE(safezoneX + (5 * GRID_W));
             y = QUOTE(safezoneY + (5 * GRID_H));
-            w = QUOTE(160 * GRID_W);
+            w = QUOTE(200 * GRID_W);
             h = QUOTE(safezoneH - (34 * GRID_H));
             sizeEx = QUOTE(5 * GRID_H);
-            colorBackground[]={0,0,0,0.6};
+            colorBackground[]={0,0,0,0.8};
         };
 
 

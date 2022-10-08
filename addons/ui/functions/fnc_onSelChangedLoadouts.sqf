@@ -30,8 +30,37 @@ private _loadoutName = _contentPanelCtrl lnbText [_curSel, 1];
 
 private _loadout = _contentPanelCtrl getVariable _loadoutName;
 
-_loadoutInfoCtrl ctrlSetStructuredText parseText ([_loadout] call wolf_logistics_ui_fnc_generateLoadoutDescription);
+//_loadoutInfoCtrl ctrlSetStructuredText parseText ([_loadout] call wolf_logistics_ui_fnc_generateLoadoutDescription);
 //_loadoutInfoCtrl ctrlSetText ([_loadout] call wolf_logistics_ui_fnc_generateLoadoutDescription);
+
+private _loadoutDescription = [_loadout] call wolf_logistics_ui_fnc_generateLoadoutDescription;
+
+tvClear _loadoutInfoCtrl;
+private _addTreeItem = {
+    params ["_item", "_parentPath"];
+
+    if (_item isEqualType []) then {
+        private _nodeItem = _loadoutInfoCtrl tvAdd [_parentPath, _item select 1];
+        private _nodePath = _parentPath + [_nodeItem];
+        _loadoutInfoCtrl tvSetPicture [_nodePath, getText ((_item select 0) >> "picture")];
+
+        if (count _item > 2) then { // item with sub content
+            {
+                [_x, _nodePath] call _addTreeItem;
+            } forEach (_item select 2);
+        }
+    } else {
+        _loadoutInfoCtrl tvAdd [_parentPath, _item];
+    }
+};
+
+{
+    [_x, []] call _addTreeItem;
+} forEach _loadoutDescription;
+
+//#TODO extra features, click item in tree and delete it out of existing lodaout
+
+tvExpandAll _loadoutInfoCtrl;
 
 _textEditBoxCtrl ctrlSetText (_control lnbText [_curSel, 1]);
 
