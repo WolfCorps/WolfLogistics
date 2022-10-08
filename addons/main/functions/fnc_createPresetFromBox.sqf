@@ -26,19 +26,25 @@ private _weapons = [];
 
 {
     _presetContents pushBack _X;
-} forEach weaponsItemsCargo _target;
+} forEach weaponsItemsCargo _target; // [weapon, muzzle, flashlight, optics, primaryMag, secondaryMag, bipod]
 
 private _magazineCargo = getMagazineCargo _target;
 
 {
-    _presetContents pushBack [_x, (_magazineCargo select 1) select _forEachIndex];
+    _presetContents pushBack [_x, (_magazineCargo select 1) select _forEachIndex]; // [name, count]
 } forEach (_magazineCargo select 0);
 
 
 private _itemCargo = getItemCargo _target;
 
 {
-    _presetContents pushBack [_x, (_itemCargo select 1) select _forEachIndex];
+    _presetContents pushBack [_x, (_itemCargo select 1) select _forEachIndex];  // [name, count]
 } forEach (_itemCargo select 0);
+
+private _backpackCargo = everyBackpack _target;
+
+{
+    _presetContents pushBack [typeOf _x, [_x, "", ""] call wolf_logistics_main_fnc_createPresetFromBox, 1];  // [name, contentPreset, dummy]
+} forEach _backpackCargo;
 
 _newPreset

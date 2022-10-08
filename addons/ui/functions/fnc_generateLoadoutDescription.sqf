@@ -21,11 +21,21 @@ _preset params ["_presetName","_presetDescription","_presetContents"];
 
 private _text = [_presetDescription, "", ""];
 
-private _getDisplayName = {
+private _getClassRef = {
     private _cfgWeaponsClass = configFile >> "CfgWeapons" >> _this;
-    if (isClass _cfgWeaponsClass) exitWith {getText (_cfgWeaponsClass >> "displayName")};
+    if (isClass _cfgWeaponsClass) exitWith {_cfgWeaponsClass};
 
     _cfgWeaponsClass = configFile >> "CfgMagazines" >> _this;
+    if (isClass _cfgWeaponsClass) exitWith {_cfgWeaponsClass};
+
+    _cfgWeaponsClass = configFile >> "CfgVehicles" >> _this; // Backpack
+    if (isClass _cfgWeaponsClass) exitWith {_cfgWeaponsClass};
+
+    configNull;
+};
+
+private _getDisplayName = {
+    private _cfgWeaponsClass = _this call _getClassRef;
     if (isClass _cfgWeaponsClass) exitWith {getText (_cfgWeaponsClass >> "displayName")};
 
     _this;
@@ -33,18 +43,32 @@ private _getDisplayName = {
 
 
 {
-    if (count _x > 2) then { //Weapon
-        _x params ["_class", "_muzzle", "_side", "_top", "_magazine", "_secondaryMagazine", "_bottom"];
-        private _weaponAttachments = [];
+    if (count _x > 2) then { //Weapon or backpack
 
-        if (_muzzle != "") then {_weaponAttachments pushBack (_muzzle call _getDisplayName)};
-        if (_side != "") then {_weaponAttachments pushBack (_side call _getDisplayName)};
-        if (_top != "") then {_weaponAttachments pushBack (_top call _getDisplayName)};
-        if (_bottom != "") then {_weaponAttachments pushBack (_bottom call _getDisplayName)};
-        if !(_magazine isEqualTo []) then {_weaponAttachments pushBack ((_magazine select 0) call _getDisplayName)};
-        if !(_secondaryMagazine isEqualTo []) then {_weaponAttachments pushBack ((_secondaryMagazine select 0) call _getDisplayName)};
+        if ((_x select 1) isEqualType []) then {
+            // [backpackName, contentPreset, ignoredFakeValue]
+            _x params ["_backpackClass", "_preset"];
 
-        _text pushBack format["%1 with %2", _class call _getDisplayName, _weaponAttachments];
+            _text pushBack format["%1:", _backpackClass call _getDisplayName];
+
+            private _contentText = [[_preset] call wolf_logistics_ui_fnc_generateLoadoutDescription, "<br/>"] call CBA_fnc_split;
+            _contentText = _contentText select {_x isNotEqualTo ""}; // Filter out empty lines
+            _contentText = _contentText apply {format["  %1", _x]}; // indent
+            _text append _contentText;
+        } else {
+            // [weapon, muzzle, flashlight, optics, primaryMag, secondaryMag, bipod]
+            _x params ["_class", "_muzzle", "_side", "_top", "_magazine", "_secondaryMagazine", "_bottom"];
+            private _weaponAttachments = [];
+
+            if (_muzzle != "") then {_weaponAttachments pushBack (_muzzle call _getDisplayName)};
+            if (_side != "") then {_weaponAttachments pushBack (_side call _getDisplayName)};
+            if (_top != "") then {_weaponAttachments pushBack (_top call _getDisplayName)};
+            if (_bottom != "") then {_weaponAttachments pushBack (_bottom call _getDisplayName)};
+            if !(_magazine isEqualTo []) then {_weaponAttachments pushBack ((_magazine select 0) call _getDisplayName)};
+            if !(_secondaryMagazine isEqualTo []) then {_weaponAttachments pushBack ((_secondaryMagazine select 0) call _getDisplayName)};
+
+            _text pushBack format["%1 with %2", _class call _getDisplayName, _weaponAttachments];
+        }
     } else { //Item
         _x params ["_class", "_count"];
         _text pushBack format["%1x %2", _count, _class call _getDisplayName];
