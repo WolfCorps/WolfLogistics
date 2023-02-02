@@ -57,5 +57,10 @@ params ["_target"];
         }, {["AllVehicles", "LandVehicle", "Air"] findIf {_target isKindOf _x} == -1}, {}] call ace_interact_menu_fnc_createAction,
         [],
         _target
+    ],
+    [
+        [QGVAR(openLogistikMenu), "Öffne Loadout-Editor", "", {[_target] call zen_loadout_fnc_configure;}, {true}, {}] call ace_interact_menu_fnc_createAction,
+        [],
+        _target
     ]
 ]
