@@ -14,7 +14,6 @@
  *
  * Public: No
  */
-
 params ["_target"];
 private _actions = [
 
@@ -59,6 +58,6 @@ private _actions = [
 		]
 ];
 
-if (isClass (configFile>>CfgPatches>>zen_loadout)) then _actions pushBack [[QGVAR(openLogistikMenu), "Öffne Loadout-Editor", "", {[_target] call zen_loadout_fnc_configure;}, {true}, {}] call ace_interact_menu_fnc_createAction, [], _target];
+if (isClass (configFile>>"CfgPatches">>"zen_loadout")) then {_actions pushBack [[QGVAR(openLogistikMenu), "Öffne Loadout-Editor", "", {[_target] call zen_loadout_fnc_configure;}, {true}, {}] call ace_interact_menu_fnc_createAction, [], _target]};
 
-_actions
+_actions;
