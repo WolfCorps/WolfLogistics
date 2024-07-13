@@ -20,7 +20,7 @@ class GVAR(loadoutInfo) {
             x = QUOTE(safezoneW  + safezoneX - (180 * GRID_W));
             y = QUOTE(safezoneY + (5 * GRID_H));
             w = QUOTE(160 * GRID_W);
-            h = QUOTE(safezoneH - (34 * GRID_H));
+            h = QUOTE(safezoneH - (10 * GRID_H));
             class controls {
                 class centerFrame: RscFrame {
                     idc = -1;
@@ -41,7 +41,7 @@ class GVAR(loadoutInfo) {
                 class centerTitle: ctrlStaticTitle {
                     idc = IDC_centerTitle;
                     style = ST_CENTER;
-                    text = "";
+                    text = "Loadout Pakete";
                     x = QUOTE(0);
                     y = QUOTE(0);
                     w = QUOTE(160 * GRID_W);
@@ -144,6 +144,18 @@ class GVAR(loadoutInfo) {
                     colorBackgroundActive[] = {0.5,0,0,1};
                     onButtonClick = QUOTE([ARR_2(ctrlParent (_this select 0), _this select 0)] call FUNC(buttonLoadoutsClearBox));
                 };
+                // Second row 
+                #define SECOND_ROW_HEIGHT safezoneH - (44 * GRID_H) + (10 * GRID_H) + 4 * GRID_H
+
+                class textBoxFillState: RscText {
+                    idc = IDC_boxFillState;
+                    text ="Kisten Füllstatus: 0/0";
+                    x = QUOTE(0 * GRID_W);
+                    y = QUOTE(SECOND_ROW_HEIGHT);
+                    w = QUOTE((30 * GRID_W)*2 + 2.5 * GRID_W); // Two buttons plus gap inbetween
+                    h = QUOTE(10 * GRID_H);
+                    sizeEx = QUOTE(5 * GRID_H);
+                    colorBackground[] = {0,0,0,0.8};
             };
         };
         class buttonClose: ctrlButton {

@@ -20,3 +20,4 @@ _args params ["_display"];
 
 
 [_display] call FUNC(fillLoadoutsList);
+_display call FUNC(updateBoxFillState);

@@ -2,7 +2,7 @@
 
 PREP(buttonLoadoutsClearBox);
 PREP(buttonLoadoutsExport);
-PREP(buttonLoadoutsLoad);
+PREP(buttonLoadoutsPackIntoBox);
 PREP(buttonLoadoutsSave);
 PREP(fillLoadoutsList);
 PREP(handleLoadoutsSearchbar);
@@ -11,4 +11,5 @@ PREP(generateLoadoutDescription);
 PREP(onSelChangedLoadouts);
 PREP(openLogistikMenuOnBox);
 PREP(openPresetInfo);
+PREP(updateBoxFillState);
 PREP(presetsReceived);
