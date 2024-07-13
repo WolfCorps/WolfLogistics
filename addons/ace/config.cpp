@@ -95,3 +95,33 @@ class GVAR(letter_##let) : ACE_XBlack { \
         tagModel = "UserTexture10m_F";
     };
 };
+
+// I don't like this either, but ACE uses a special onUnload, making the DisplayUnload EH non-functional, and there are no other eventhandlers to grab this
+class ace_cargo_renameMenu {
+    class controls {
+        class HeaderName {
+            onDestroy = QUOTE(call FUNC(onPostObjectRename)); // When the display is closed, without messing with the existing onUnload EH of the display
+        };
+    };
+};
+
+class RscEmpty;
+class RscPicture;
+class GVAR(boxName) : RscEmpty
+{
+    idd = -1; // Will be accessed by variable via onLoad
+    movingEnable = 0;
+    onLoad = QUOTE(call FUNC(initBoxNameDisplay));
+    class controlsBackground {
+        class SrcTex : RscPicture
+        {
+            idc = 1;
+            x = 0;
+            y = 0;
+            w = 1;
+            h = 1;
+            // Text will be set by init to original texture path
+        };
+    };
+    class controls {};
+};
