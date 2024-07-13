@@ -11,7 +11,7 @@ GVAR(objectAction) = [
         ([_player, _target, ["isNotSwimming"]] call ace_common_fnc_canInteractWith) &&
         {count (nearestObjects [_target, GVAR(arsenalTypes), 50]) > 0}
     },
-    LINKFUNC(addLogistikActions)
+    LINKFUNC(addLogistikBoxActions)
 ] call ace_interact_menu_fnc_createAction;
 
 

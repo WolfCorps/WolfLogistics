@@ -10,7 +10,7 @@
  * Child actions <ARRAY>
  *
  * Example:
- * [cursorObject] call wolf_logistik_fnc_addLogistikActions
+ * [cursorObject] call wolf_logistics_ace_fnc_addLogistikBoxActions
  *
  * Public: No
  */
