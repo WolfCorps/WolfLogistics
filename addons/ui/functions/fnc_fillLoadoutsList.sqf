@@ -34,8 +34,6 @@ private _data = GVAR(presets);
 {
     _x params ["_loadoutName", "_loadoutDescription", "_loadoutData"];
 
-    _contentPanelCtrl lnbSetColumnsPos [0, 0.05, 0.40, 0.50, 0.60, 0.70, 0.75, 0.80, 0.85, 0.90];
-
     private _newRow = _contentPanelCtrl lnbAddRow ["",_loadoutName];
 
     _contentPanelCtrl setVariable [_loadoutName, _x];

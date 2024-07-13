@@ -50,7 +50,7 @@ class GVAR(loadoutInfo) {
                 };
                 class contentPanel: RscListNBox {
                     idc = IDC_contentPanel;
-                    columns[]={0, 0.05, 0.40, 0.50, 0.60, 0.70, 0.75, 0.80, 0.85, 0.90};
+                    columns[]={0, 0.05};
                     drawSideArrows=0;
                     disableOverflow=1;
                     onSetFocus = QUOTE(GVAR(loadoutsPanelFocus) = true);
