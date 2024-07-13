@@ -30,10 +30,16 @@ _backpackPostProcess = [];
         if ((_x select 1) isEqualType []) then {
             // [backpackName, contentPreset, ignoredFakeValue]
             
-            _target addBackpackCargoGlobal [_x select 0, 1];
-            private _allBackpacks = everyBackpack _target;
+            // Backpack or vest/uniform (vehicle or item)?
+            if (isClass (configFile >> "CfgWeapons" >> (_x select 0))) then {
+                _target addItemCargoGlobal [_x select 0, 1];
+            } else {
+                _target addBackpackCargoGlobal [_x select 0, 1];
+            };
+            
+            private _allBackpacks = everyContainer _target;
             // Assume the last backpack in everyBackpack is the most recently added one. That seems to work fine
-            private _targetBackpack = _allBackpacks select -1;
+            private _targetBackpack = (_allBackpacks select -1) select 1;
             // It may be prefilled one, so empty it first 
             clearWeaponCargoGlobal _targetBackpack;
             clearItemCargoGlobal _targetBackpack;
