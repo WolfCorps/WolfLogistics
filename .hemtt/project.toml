@@ -1,13 +1,19 @@
 name = "Wolf Logistics"
+mainprefix = "z"
 prefix = "wolf_logistics"
 author = "Wolf Corps"
-files = [
+
+[files]
+include = [
     "mod.cpp",
     "README.md",
     "AUTHORS.txt",
     "LICENSE",
     "meta.cpp"
 ]
+
+[version]
+git_hash = 0
 
 keyname = "{{prefix}}_{{version}}"
 signame = "{{prefix}}_{{version}}-{{git \"id 8\"}}"

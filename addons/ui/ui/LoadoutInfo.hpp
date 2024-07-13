@@ -48,7 +48,7 @@ class GVAR(loadoutInfo) {
                     h = QUOTE(5 * GRID_H);
                     sizeEx = QUOTE(5 * GRID_H);
                 };
-                class contentPanel: RscListnBox {
+                class contentPanel: RscListNBox {
                     idc = IDC_contentPanel;
                     columns[]={0, 0.05, 0.40, 0.50, 0.60, 0.70, 0.75, 0.80, 0.85, 0.90};
                     drawSideArrows=0;
