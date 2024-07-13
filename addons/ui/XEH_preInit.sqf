@@ -22,3 +22,14 @@ ADDON = true;
         GVAR(presets) set [_loadoutIndex, _this];
     };
 }] call CBA_fnc_addEventHandler;
+
+["wolf_logistics_deletePreset", {
+    params ["_presetName"];
+
+    private _loadoutIndex = GVAR(presets) findIf {(_x select 0) == _presetName};
+    //diag_log (GVAR(presets) apply {(_x select 0)});
+
+    if (_loadoutIndex isNotEqualto -1) then {
+        GVAR(presets) deleteAt _loadoutIndex;
+    };
+}] call CBA_fnc_addEventHandler;

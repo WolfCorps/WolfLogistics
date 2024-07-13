@@ -17,4 +17,4 @@
 
 params ["_presets"];
 
-GVAR(presets) = _presets;
+GVAR(presets) = +_presets; // + is only required in singleplayer, and only for testing. So we don't edit the server array when we edit the ui one

@@ -17,12 +17,14 @@
 params ["_display", "_control", "_curSel"];
 
 private _saveButtonCtrl = _display displayCtrl IDC_buttonSave;
-private _loadButtonCtrl = _display displayCtrl IDC_buttonLoad;
-private _clearBoxButtonCtrl = _display displayCtrl IDC_buttonDelete;
-private _exportButtonCtrl = _display displayCtrl IDC_buttonShare;
-//private _renameButtonCtrl = _display displayCtrl IDC_buttonRename;
+private _packIntoBoxButtonCtrl = _display displayCtrl IDC_buttonPackIntoBox;
+private _clearBoxButtonCtrl = _display displayCtrl IDC_buttonClearBox;
+private _exportBoxButtonCtrl = _display displayCtrl IDC_buttonShareBox;
+private _exportPresetButtonCtrl = _display displayCtrl IDC_buttonSharePreset;
+private _renameButtonCtrl = _display displayCtrl IDC_buttonRename;
+private _deleteButtonCtrl = _display displayCtrl IDC_buttonDelete;
 private _loadoutInfoCtrl = _display displayCtrl IDC_loadoutInfo;
-private _textEditBoxCtrl = _display displayCtrl IDC_textEditBox;
+private _textEditBoxCtrl = _display displayCtrl IDC_textLoadoutName;
 
 
 private _contentPanelCtrl = _display displayCtrl IDC_contentPanel;
@@ -64,29 +66,36 @@ tvExpandAll _loadoutInfoCtrl;
 
 _textEditBoxCtrl ctrlSetText (_control lnbText [_curSel, 1]);
 
-if (GVAR(center) isEqualTo objNull) exitWith {
-    {
-        _x ctrlEnable false;
-        _x ctrlCommit 0;
-    } foreach [_saveButtonCtrl, _loadButtonCtrl, _clearBoxButtonCtrl, _exportButtonCtrl];
-};
-
-if (_curSel == -1) exitWith {
-    {
-        _x ctrlEnable true;
-        _x ctrlCommit 0;
-    } foreach [_exportButtonCtrl, _saveButtonCtrl, _clearBoxButtonCtrl];
-
-    {
-        _x ctrlEnable false;
-        _x ctrlCommit 0;
-    } foreach [_loadButtonCtrl];
-};
+// We enable them all, then we disable what we can't have
 
 {
     _x ctrlEnable true;
     _x ctrlCommit 0;
-} foreach [_loadButtonCtrl, _clearBoxButtonCtrl];
+} foreach [
+    // First row
+    _saveButtonCtrl, _renameButtonCtrl, _deleteButtonCtrl, // Preset edit buttons
+    _clearBoxButtonCtrl, _packIntoBoxButtonCtrl, _exportBoxButtonCtrl,
+    // Second row
+    _exportPresetButtonCtrl
+];
+
+if (GVAR(center) isEqualTo objNull) then {
+    // No box
+    {
+        _x ctrlEnable false;
+        _x ctrlCommit 0;
+    } foreach [_saveButtonCtrl, _clearBoxButtonCtrl, _packIntoBoxButtonCtrl, _exportBoxButtonCtrl];
+};
+
+if (_curSel == -1) then {
+    // No preset
+    {
+        _x ctrlEnable false;
+        _x ctrlCommit 0;
+    } foreach [_renameButtonCtrl, _deleteButtonCtrl, _packIntoBoxButtonCtrl, _exportPresetButtonCtrl];
+};
+
+
 
 
 

@@ -1,10 +1,12 @@
 
 
 PREP(buttonLoadoutsClearBox);
+PREP(buttonLoadoutsDelete);
 PREP(buttonLoadoutsExport);
 PREP(buttonLoadoutsImport);
 PREP(buttonLoadoutsPackIntoBox);
 PREP(buttonLoadoutsSave);
+PREP(buttonLoadoutsRename);
 PREP(fillLoadoutsList);
 PREP(handleLoadoutsSearchbar);
 PREP(onLoadoutInfoOpen);

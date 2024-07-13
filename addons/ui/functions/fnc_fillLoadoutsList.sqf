@@ -17,7 +17,7 @@
 params ["_display"];
 
 private _contentPanelCtrl = _display displayCtrl IDC_contentPanel;
-private _textEditBoxCtrl= _display displayCtrl IDC_textEditBox;
+private _textEditBoxCtrl= _display displayCtrl IDC_textLoadoutName;
 _textEditBoxCtrl ctrlSetText "";
 
 // Force a "refresh" animation of the panel

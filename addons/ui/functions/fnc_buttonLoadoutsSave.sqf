@@ -18,7 +18,7 @@ params ["_display", "_control"];
 
 if !(ctrlEnabled _control) exitWith {};
 
-private _editBoxCtrl = _display displayCtrl IDC_textEditBox;
+private _editBoxCtrl = _display displayCtrl IDC_textLoadoutName;
 private _editBoxContent = ctrlText _editBoxCtrl;
 
 if (_editBoxContent == "") exitWith {
@@ -34,11 +34,11 @@ private _curSelLoadout = (_contentPanelCtrl getVariable _loadoutName) select 0;
 private _loadout =  [GVAR(center), _editBoxContent, "Dies ist ein Temporäres Paket"] call wolf_logistics_main_fnc_createPresetFromBox;
 
 
-private _loadoutIndex = _data findIf {(_x select 0) == _editBoxContent};
+//private _loadoutIndex = _data findIf {(_x select 0) == _editBoxContent};
 
 ["wolf_logistics_newPreset", _loadout] call CBA_fnc_globalEvent;
 
-// Delete "old" loadout row
+// Delete "old" loadout row if we replaced one with same name
 for '_i' from 0 to (((lnbsize _contentPanelCtrl) select 0) - 1) do {
     if ((_contentPanelCtrl lnbText [_i, 1]) == _editBoxContent) exitwith {_contentPanelCtrl lnbDeleteRow _i};
 };
@@ -55,4 +55,4 @@ for '_i' from 0 to (((lnbsize _contentPanelCtrl) select 0) - 1) do {
     if ((_contentPanelCtrl lnbText [_i, 1]) == _editBoxContent) exitwith {_contentPanelCtrl lnbSetCurSelRow _i};
 };
 
-"Loadout wurde Temporär gespeichert" call CBA_fnc_notify;
+"Paket wurde Temporär gespeichert" call CBA_fnc_notify;
