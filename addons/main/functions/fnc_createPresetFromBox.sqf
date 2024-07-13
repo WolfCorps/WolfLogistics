@@ -36,15 +36,26 @@ private _magazineCargo = getMagazineCargo _target;
 
 
 private _itemCargo = getItemCargo _target;
+private _backpackCargo = everyContainer _target;
+
+// We would list uniforms and vests twice. Remove containers from the item list 
+
+{
+    private _found = (_itemCargo select 0) find (_x select 0);
+    if (_found != -1) then {(_itemCargo select 0) deleteAt _found; (_itemCargo select 1) deleteAt _found;}
+} forEach _backpackCargo;
 
 {
     _presetContents pushBack [_x, (_itemCargo select 1) select _forEachIndex];  // [name, count]
 } forEach (_itemCargo select 0);
 
-private _backpackCargo = everyBackpack _target;
+
 
 {
-    _presetContents pushBack [typeOf _x, [_x, "", ""] call wolf_logistics_main_fnc_createPresetFromBox, 1];  // [name, contentPreset, dummy]
+    _x params ["_type", "_object"];
+    _presetContents pushBack [_type, [_object, "", ""] call wolf_logistics_main_fnc_createPresetFromBox, 1];  // [name, contentPreset, dummy]
 } forEach _backpackCargo;
+
+private _backpackCargo = everyBackpack _target;
 
 _newPreset
