@@ -81,12 +81,23 @@ class GVAR(loadoutInfo) {
                     h = QUOTE(5 * GRID_H);
                     sizeEx = QUOTE(6 * GRID_H);
                 };
+                class loadoutsSearchbarButton: ctrlButtonPicture {
+                    idc = -1;
+                    text = "\a3\Ui_f\data\GUI\RscCommon\RscButtonSearch\search_start_ca.paa";
+                    colorBackground[]={0,0,0,0.5};
+                    //onButtonClick = QUOTE([ARR_2(ctrlParent (_this select 0), ctrlParent (_this select 0) displayCtrl IDC_loadoutsSearchbar)] call FUNC(handleLoadoutsSearchbar));
+                    x = QUOTE(83 * GRID_W);
+                    y = QUOTE(safezoneH - (51 * GRID_H));
+                    w = QUOTE(5 * GRID_W);
+                    h = QUOTE(5 * GRID_H);
+                };
                 class loadoutsSearchbar: ctrlEdit {
                     idc = IDC_loadoutsSearchbar;
                     onSetFocus = QUOTE(GVAR(searchbarFocus) = true);
                     onKillFocus = QUOTE(GVAR(searchbarFocus) = false);
-                    //onMouseButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0), _this select 0, _this select 1)] call FUNC(clearSearchbar));
-                    x = QUOTE(83 * GRID_W);
+                    onMouseButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0), _this select 0, _this select 1)] call FUNC(clearSearchbar));
+                    onKeyUp = QUOTE([ARR_2(ctrlParent (_this select 0), _this select 0)] call FUNC(handleLoadoutsSearchbar));
+                    x = QUOTE(88 * GRID_W);
                     y = QUOTE(safezoneH - (51 * GRID_H));
                     w = QUOTE(72 * GRID_W);
                     h = QUOTE(5 * GRID_H);

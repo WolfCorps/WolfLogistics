@@ -7,6 +7,7 @@ PREP(buttonLoadoutsImport);
 PREP(buttonLoadoutsPackIntoBox);
 PREP(buttonLoadoutsSave);
 PREP(buttonLoadoutsRename);
+PREP(clearSearchbar);
 PREP(fillLoadoutsList);
 PREP(handleLoadoutsSearchbar);
 PREP(onLoadoutInfoOpen);
