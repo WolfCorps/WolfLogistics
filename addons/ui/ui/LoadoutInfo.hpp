@@ -156,6 +156,37 @@ class GVAR(loadoutInfo) {
                     h = QUOTE(10 * GRID_H);
                     sizeEx = QUOTE(5 * GRID_H);
                     colorBackground[] = {0,0,0,0.8};
+                };
+
+                class textImportData: ctrlEdit {
+                    idc= IDC_textImportData;
+                    x = QUOTE(65 * GRID_W);
+                    y = QUOTE(SECOND_ROW_HEIGHT + 2.5*GRID_H);
+                    w = QUOTE(30 * GRID_W - 2.5*GRID_H);
+                    h = QUOTE(5 * GRID_H);
+                    sizeEx = QUOTE(6 * GRID_H);
+                };
+
+                class buttonImportPreset: buttonClearBox {
+                    idc = -1;
+                    x = QUOTE((65+30) * GRID_W);
+                    y = QUOTE(SECOND_ROW_HEIGHT);
+                    text = "Import Paket";
+                    tooltip= "Importiert Paket aus der Textbox";
+                    onButtonClick = QUOTE([ARR_2(ctrlParent (_this select 0), _this select 0)] call FUNC(buttonLoadoutsImport));
+                    colorBackground[] = {0,0,0,0.8};
+                };
+
+                class buttonExportPresetContent: buttonClearBox {
+                    idc = IDC_buttonSharePreset;
+                    x = QUOTE(127.5 * GRID_W);
+                    y = QUOTE(SECOND_ROW_HEIGHT);
+                    text = "Export Paket";
+                    tooltip= "Exportiert ausgewähltes Paket in Zwischenablage";
+                    onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0), _this select 0, false)] call FUNC(buttonLoadoutsExport));
+                    colorBackground[] = {0,0,0,0.8};
+                };
+
             };
         };
         class buttonClose: ctrlButton {

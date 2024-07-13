@@ -2,6 +2,7 @@
 
 PREP(buttonLoadoutsClearBox);
 PREP(buttonLoadoutsExport);
+PREP(buttonLoadoutsImport);
 PREP(buttonLoadoutsPackIntoBox);
 PREP(buttonLoadoutsSave);
 PREP(fillLoadoutsList);
