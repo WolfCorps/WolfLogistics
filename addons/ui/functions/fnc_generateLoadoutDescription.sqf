@@ -23,6 +23,8 @@ private _text = [];
 _text append ([_presetDescription, "\n"] call CBA_fnc_split); // Multiline description
 _text append ["", ""]; // Spacers to contents
 
+private _massInfoElement = _text pushBack "";
+
 private _getClassRef = {
     private _cfgWeaponsClass = configFile >> "CfgWeapons" >> _this;
     if (isClass _cfgWeaponsClass) exitWith {_cfgWeaponsClass};
@@ -43,6 +45,17 @@ private _getDisplayName = {
     _this;
 };
 
+private _massSum = 0;
+
+private _addMass = {
+    params ["_className", ["_count", 1]];
+    private _cfg = _className call _getClassRef;
+
+    // Backpack
+    if (_className isKindOf ["ReammoBox", configFile >> "CfgVehicles"]) exitWith {_massSum = _massSum + (getNumber (_cfg >> "mass")) * _count;};
+
+    _massSum = _massSum + (getNumber (_cfg >> "ItemInfo" >> "mass")) * _count;
+};
 
 {
     if (count _x > 2) then { //Weapon or backpack
@@ -59,28 +72,39 @@ private _getDisplayName = {
             _contentText = _contentText select {_x isNotEqualTo ""}; // Filter out empty lines
             //_contentText = _contentText apply {format["  %1", _x]}; // indent
             //_text append _contentText;
-            _text pushBack [_class call _getClassRef, _backpackClass call _getDisplayName, _contentText];
+
+            // Grab the mass out of it 
+            if ((_contentText select 0) find "Mass:" != -1) then {
+                private _massString = _contentText deleteAt 0;
+                _massSum = _massSum + parseNumber (_massString select [(_massString find ":") + 1]);
+            };
+
+            _backpackClass call _addMass;
+            _text pushBack [_backpackClass call _getClassRef, _backpackClass call _getDisplayName, _contentText];
         } else {
             // [weapon, muzzle, flashlight, optics, primaryMag, secondaryMag, bipod]
             _x params ["_class", "_muzzle", "_side", "_top", "_magazine", "_secondaryMagazine", "_bottom"];
             private _weaponAttachments = [];
 
-            if (_muzzle != "") then {_weaponAttachments pushBack (_muzzle call _getDisplayName)};
-            if (_side != "") then {_weaponAttachments pushBack (_side call _getDisplayName)};
-            if (_top != "") then {_weaponAttachments pushBack (_top call _getDisplayName)};
-            if (_bottom != "") then {_weaponAttachments pushBack (_bottom call _getDisplayName)};
-            if !(_magazine isEqualTo []) then {_weaponAttachments pushBack ((_magazine select 0) call _getDisplayName)};
-            if !(_secondaryMagazine isEqualTo []) then {_weaponAttachments pushBack ((_secondaryMagazine select 0) call _getDisplayName)};
+            if (_muzzle != "") then {_weaponAttachments pushBack (_muzzle call _getDisplayName); _muzzle call _addMass;};
+            if (_side != "") then {_weaponAttachments pushBack (_side call _getDisplayName); _side call _addMass;};
+            if (_top != "") then {_weaponAttachments pushBack (_top call _getDisplayName); _top call _addMass;};
+            if (_bottom != "") then {_weaponAttachments pushBack (_bottom call _getDisplayName); _bottom call _addMass;};
+            if !(_magazine isEqualTo []) then {_weaponAttachments pushBack ((_magazine select 0) call _getDisplayName); (_magazine select 0) call _addMass;};
+            if !(_secondaryMagazine isEqualTo []) then {_weaponAttachments pushBack ((_secondaryMagazine select 0) call _getDisplayName); (_secondaryMagazine select 0) call _addMass;};
 
+            _class call _addMass;
             _text pushBack [_class call _getClassRef, format["%1 with %2", _class call _getDisplayName, _weaponAttachments]];
         }
     } else { //Item
         _x params ["_class", "_count"];
         _text pushBack [_class call _getClassRef, format["%1x %2", _count, _class call _getDisplayName]];
+
+        _x call _addMass;
     }
 } forEach _presetContents;
 
-
+_text set [_massInfoElement, format["Total Mass: %1", _massSum]];
 //_text joinString "<br/>"
 _text
 
