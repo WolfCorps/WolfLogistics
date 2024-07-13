@@ -153,6 +153,7 @@
         }] call ace_interact_menu_fnc_createAction, [], _target
     ],
     SPAWNBOX_WITHLOAD("Spawn Transportnetz", 'CargoNet_01_box_F'),
+    SPAWNBOX_WITHLOAD("Spawn Fahrzeug Munition", 'Box_NATO_AmmoVeh_F'),
     [
         [QGVAR(__COUNTER__), "Spawn UAV Box...", "", {}, {true}, {
             params ["_target"];
