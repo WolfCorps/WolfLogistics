@@ -15,6 +15,31 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+
+// https://github.com/acemod/ACE3/blob/master/addons/attach/CfgVehicles.hpp#L2
+// Let me attach chemlights / gps trackers to boxes
+#define MACRO_ATTACHTOVEHICLE \
+    class ACE_Actions { \
+        class ACE_MainActions { \
+            class ace_attach_AttachVehicle { \
+                displayName = "$STR_ace_attach_AttachDetach"; \
+                condition = "_this call ace_attach_fnc_canAttach"; \
+                insertChildren = "_this call ace_attach_fnc_getChildrenActions"; \
+                exceptions[] = {"isNotSwimming"}; \
+                showDisabled = 0; \
+                icon = "\z\ace\addons\attach\UI\attach_ca.paa"; \
+            }; \
+            class ace_attach_DetachVehicle { \
+                displayName = "$STR_ace_attach_Detach"; \
+                condition = "_this call ace_attach_fnc_canDetach"; \
+                statement = "_this call ace_attach_fnc_detach"; \
+                exceptions[] = {"isNotSwimming"}; \
+                showDisabled = 0; \
+                icon = "\z\ace\addons\attach\UI\detach_ca.paa"; \
+            }; \
+        }; \
+    };
+
 class CfgVehicles {
     class Man;
     class CAManBase: Man {
@@ -41,17 +66,26 @@ class CfgVehicles {
         };
     };
 
-
     class Items_base_F;
     class rhsusf_props_JerryCan_Base: Items_base_F {
         ace_cargo_size = 1;
         ace_cargo_canLoad = 1;
+        MACRO_ATTACHTOVEHICLE
     };
 
     class ThingX;
     class FlexibleTank_base_F: ThingX {
         ace_cargo_size = 3;
         ace_cargo_canLoad = 1;
+        MACRO_ATTACHTOVEHICLE
+    };
+
+    class PlasticCase_01_base_F: ThingX {
+        MACRO_ATTACHTOVEHICLE
+    };
+
+    class ReammoBox_F: ThingX {
+        MACRO_ATTACHTOVEHICLE
     };
 };
 
