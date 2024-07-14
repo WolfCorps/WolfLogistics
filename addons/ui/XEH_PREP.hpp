@@ -13,6 +13,7 @@ PREP(handleLoadoutsSearchbar);
 PREP(onLoadoutInfoOpen);
 PREP(generateLoadoutDescription);
 PREP(onSelChangedLoadouts);
+PREP(onSelChangedPlayerList);
 PREP(openLogistikMenuOnBox);
 PREP(openPresetInfo);
 PREP(updateBoxFillState);

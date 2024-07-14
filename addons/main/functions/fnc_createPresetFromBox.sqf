@@ -25,7 +25,7 @@ private _newPreset = [_presetName, _presetDescription, _presetContents];
 private _weapons = [];
 
 {
-    _presetContents pushBack _X;
+    _presetContents pushBack _x;
 } forEach weaponsItemsCargo _target; // [weapon, muzzle, flashlight, optics, primaryMag, secondaryMag, bipod]
 
 private _magazineCargo = getMagazineCargo _target;
@@ -50,12 +50,9 @@ private _backpackCargo = everyContainer _target;
 } forEach (_itemCargo select 0);
 
 
-
 {
     _x params ["_type", "_object"];
     _presetContents pushBack [_type, [_object, "", ""] call wolf_logistics_main_fnc_createPresetFromBox, 1];  // [name, contentPreset, dummy]
 } forEach _backpackCargo;
-
-private _backpackCargo = everyBackpack _target;
 
 _newPreset

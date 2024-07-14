@@ -236,6 +236,27 @@ class GVAR(loadoutInfo) {
         };
 
 
+        class playerListTitle: ctrlStaticTitle {
+            idc = -1;
+            style = ST_CENTER;
+            text = "Spieler in 100m radius:";
+            x = QUOTE(safezoneX + (5 * GRID_W));
+            y = QUOTE(safezoneY + (10 * GRID_H) + safezoneH - (34 * GRID_H)  );
+            w = QUOTE(200 * GRID_W);
+            h = QUOTE(5 * GRID_H);
+            sizeEx = QUOTE(5 * GRID_H);
+        };
+        class playerList: RscCombo {
+            idc = IDC_playerList;
+            onLBSelChanged = QUOTE([ARR_3(ctrlParent (_this select 0), _this select 0, _this select 1)] call FUNC(onSelChangedPlayerList));
+            x = QUOTE(safezoneX + (5 * GRID_W));
+            y = QUOTE(safezoneY + (15 * GRID_H) + safezoneH - (34 * GRID_H)  );
+            w = QUOTE(200 * GRID_W);
+            h = QUOTE(4 * GRID_H);
+            wholeHeight = QUOTE(10 * GRID_H);
+            sizeEx = QUOTE(5 * GRID_H);
+            colorBackground[]={0,0,0,0.8};
+        };
 
     };
 

@@ -12,11 +12,9 @@
 #define IDC_buttonClearBox 307
 #define IDC_buttonRename 308
 #define IDC_loadoutsSearchbar 309
+#define IDC_loadoutInfo 310
 #define IDC_boxFillState 311
 #define IDC_textImportData 312
 #define IDC_buttonShareBox 312
 #define IDC_buttonSharePreset 313
-
-#define IDC_loadoutInfo 310
-
-
+#define IDC_playerList 314
