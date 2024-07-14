@@ -45,6 +45,7 @@ private _addTreeItem = {
         private _nodeItem = _loadoutInfoCtrl tvAdd [_parentPath, _item select 1];
         private _nodePath = _parentPath + [_nodeItem];
         _loadoutInfoCtrl tvSetPicture [_nodePath, getText ((_item select 0) >> "picture")];
+        _loadoutInfoCtrl tvSetTooltip [_nodePath, configName (_item select 0)]; // Classname tooltip
 
         if (count _item > 2) then { // item with sub content
             {
