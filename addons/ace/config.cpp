@@ -101,11 +101,11 @@ class ACE_Tags {
     class ACE_XBlack;
 
 #define LETTER(let) \
-class GVAR(letter_##let) : ACE_XBlack { \
+class GVAR(DOUBLES(letter,let)) : ACE_XBlack { \
     displayName = QUOTE(Buchstabe - let); \
     requiredItem = QGVAR(spraypaint); \
-    textures[] = {QPATHTOF(data\letter_##let##_ca.paa)}; \
-    materials[] = {QPATHTOF(data\letter_##let.rvmat)}; \
+    textures[] = {QPATHTOF(TRIPLES(data\letter,let,ca.paa))}; \
+    materials[] = {QPATHTOF(DOUBLES(data\letter,let).rvmat)}; \
     tagModel = "UserTexture10m_F"; \
 }
 
