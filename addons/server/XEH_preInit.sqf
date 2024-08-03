@@ -15,7 +15,7 @@ GVAR(presets) = [
 
 ["ACE Medical - General Purpose","Medizinisches Preset mit allen notwendigen (ja, auch Torniquets) Materialien zur medizinischen Versorgung.",[["ACE_packingBandage",150],["ACE_elasticBandage",150],["ACE_epinephrine",20],["ACE_morphine",20],["ACE_salineIV_1000",10],["ACE_salineIV_500",15],["ACE_salineIV_250",20],["ACE_surgicalKit",1],["ACE_EarPlugs",2],["ACE_splint",30],["ACE_tourniquet",20],["ACE_quikclot",45]]]
 
-
+#if __has_include("\bwa3_weapons\config.bin")
 ,["Bundeswehr - 127 - G82","G82 Munitionspaket mit AP(x3), Raufoss(x1) und Tracer(x1) Munition",[["BWA3_10Rnd_127x99_G82_Raufoss_Tracer",1],["BWA3_10Rnd_127x99_G82_Tracer",1],["BWA3_10Rnd_127x99_G82_AP_Tracer",3]]]
 ,["Bundeswehr - 556 - G36","G36 Munitionspaket mit AP(x10) und Tracer(x5) Munition",[["BWA3_30Rnd_556x45_G36_Tracer",5],["BWA3_30Rnd_556x45_G36_AP",10]]]
 ,["Bundeswehr - 556 - MG4","MG4 Munitionspaket mit Standard(x3) und Tracer(x1) Munition",[["BWA3_200Rnd_556x45",3],["BWA3_200Rnd_556x45_Tracer",1]]]
@@ -29,8 +29,9 @@ GVAR(presets) = [
 ,["Bundeswehr - Granaten - AG40","Unterlauf Granaten für den AG40 der Bundeswehr",[["1Rnd_HE_Grenade_shell",10],["UGL_FlareRed_F",3],["1Rnd_SmokeRed_Grenade_shell",1],["1Rnd_Smoke_Grenade_shell",1]]]
 ,["Bundeswehr - Granaten - HGs","Handgranaten und Rauchgranaten für den normalen Soldaten",[["BWA3_DM25",7],["BWA3_DM51A1",3],["BWA3_DM32_Green",1],["BWA3_DM32_Blue",1],["BWA3_DM32_Red",1]]]
 ,["Bundeswehr - Equipment - Night-Ops","Ausrüstung für den Nachtkampf (ChemLights, Flares, NVS, IR Granaten, LLMs)",[["ACE_Chemlight_HiBlue",2],["ACE_Chemlight_HiWhite",2],["ACE_HandFlare_Red",1],["ACE_HandFlare_White",1],["ACE_HandFlare_Yellow",1],["B_IR_Grenade",2],["BWA3_optic_NSV80",5],["BWA3_optic_NSV600",5],["BWA3_acc_LLM01_irlaser",3],["BWA3_acc_VarioRay_irlaser_black",3],["UK3CB_BAF_LLM_IR_Black",3]]]
+#endif
 
-
+#if __has_include("\rhsusf\addons\rhsusf_weapons\config.bin")
 ,["US - 127 - M107","Munitionspaket für die M107 mit Standard(x4) und Raufoss(x2) Munition",[["rhsusf_mag_10Rnd_STD_50BMG_M33",4],["rhsusf_mag_10Rnd_STD_50BMG_mk211",2]]]
 ,["US - 556 - NATO Standard","Munitionspaket mit AP(x15) und Tracer(x5) Munition für die meisten NATO Standardgewehre (5.56 Kaliber)",[["rhs_mag_30Rnd_556x45_Mk318_PMAG",15],["rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red",5]]]
 ,["US - 556 - M249","M249 Munitionspaket mit 5 Magazinen a 200 Schuss",[["rhsusf_200rnd_556x45_mixed_box",5]]]
@@ -45,7 +46,7 @@ GVAR(presets) = [
 ,["US - Granaten - HGs","Handgranaten und Rauchgranaten für den normalen Soldaten",[["rhs_mag_an_m8hc",7],["rhs_mag_m67",3],["SmokeShellRed",1],["SmokeShellBlue",1]]]
 ,["US - Granaten - M203/M320","Unterlauf Granaten für den M203 und M320 mit HuntIR",[["rhs_mag_M433_HEDP",10],["ACE_HuntIR_M203",3],["rhs_mag_m713_Red",1],["rhs_mag_m714_White",1],["rhs_mag_m662_red",1],["rhs_mag_m661_green",1]]]
 ,["US - Equipment - Night-Ops","Ausrüstung für den Nachtkampf (Chemlights, Flares, PVS, IR Granaten und LLMs)",[["ACE_Chemlight_HiBlue",1],["ACE_Chemlight_HiWhite",1],["ACE_Chemlight_HiYellow",1],["ACE_HandFlare_White",1],["ACE_HandFlare_Red",1],["ACE_HandFlare_Green",1],["B_IR_Grenade",3],["rhsusf_acc_premier_anpvs27",1],["rhsusf_acc_g33_T1",3],["rhsusf_acc_ACOG_anpvs27",3],["rhsusf_acc_anpeq15side_bk",6]]]
-
+#endif
 
 ];
 
