@@ -15,6 +15,7 @@ GVAR(presets) = [
 
 ["ACE Medical - General Purpose","Medizinisches Preset mit allen notwendigen (ja, auch Torniquets) Materialien zur medizinischen Versorgung.",[["ACE_packingBandage",150],["ACE_elasticBandage",150],["ACE_epinephrine",20],["ACE_morphine",20],["ACE_salineIV_1000",10],["ACE_salineIV_500",15],["ACE_salineIV_250",20],["ACE_surgicalKit",1],["ACE_EarPlugs",2],["ACE_splint",30],["ACE_tourniquet",20],["ACE_quikclot",45]]]
 
+#pragma hemtt flag pe23_ignore_has_include
 #if __has_include("\bwa3_weapons\config.bin")
 ,["Bundeswehr - 127 - G82","G82 Munitionspaket mit AP(x3), Raufoss(x1) und Tracer(x1) Munition",[["BWA3_10Rnd_127x99_G82_Raufoss_Tracer",1],["BWA3_10Rnd_127x99_G82_Tracer",1],["BWA3_10Rnd_127x99_G82_AP_Tracer",3]]]
 ,["Bundeswehr - 556 - G36","G36 Munitionspaket mit AP(x10) und Tracer(x5) Munition",[["BWA3_30Rnd_556x45_G36_Tracer",5],["BWA3_30Rnd_556x45_G36_AP",10]]]
