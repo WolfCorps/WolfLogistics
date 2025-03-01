@@ -44,4 +44,4 @@ if !(_box getVariable ["ace_dragging_canDrag", false]) then {
 };
 
 
-[player, _box] call ace_dragging_fnc_carryObject;
+[player, _box] call ace_dragging_fnc_startCarry;
