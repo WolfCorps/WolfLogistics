@@ -21,6 +21,22 @@ params ["_boxClass", "_boxPos", "_preset"];
 
 private _edenEnt = create3DENEntity ["Object", _boxClass, _boxPos, true]; 
 
+// Set init script to
+private _initScript = format [
+	"if (local this) then {clearMagazineCargo this; clearBackpackCargo this; clearItemCargo this; clearWeaponCargo this; [this, %1] call wolf_logistics_main_fnc_fillPresetIntoBox;};",
+	_preset
+];
+
+[_edenEnt, _initScript] spawn {
+	_this params ["_edenEnt", "_attrib"];
+	private _curTime = time;
+	waitUntil {time > _curTime+1};
+
+	_edenEnt set3DENAttribute ["Init", _attrib];
+};
+
+
+/*
 
 clearMagazineCargo _edenEnt;
 clearBackpackCargo _edenEnt;
@@ -28,7 +44,6 @@ clearItemCargo _edenEnt;
 clearWeaponCargo _edenEnt;
 
 // We hack edit the preset, we cannot store container contents, so we put them directly into the box 
-
 private _preset = +_preset;
 _preset params ["_presetName","_presetDescription","_presetContents"];
 
@@ -50,13 +65,18 @@ _preset params ["_presetName","_presetDescription","_presetContents"];
 
 // Store it into "ammoBox" attribute
 
+This is broken, it does not store any weapon attachments, and adds the weapon with its default magazine
+RscAttributeInventory just cannot handle attachments.
+It also cannot handle uniform/vest/backpack contents, which is why we do that stupid fuckery above to take the contents out, which makes getting loadout alot harder..
+Fuck that shit
+
 private _cargo = [getWeaponCargo _edenEnt, getMagazineCargo _edenEnt, getItemCargo _edenEnt, getBackpackCargo _edenEnt];
 
 RscAttributeInventory_cargo = [[],[]];
 {
   RscAttributeInventory_cargo set [0, (RscAttributeInventory_cargo select 0) + (_x select 0)];
   RscAttributeInventory_cargo set [1, (RscAttributeInventory_cargo select 1) + (_x select 1)];
-} foreach _cargo;
+} forEach _cargo;
 
 uiNamespace setVariable ["RscAttributeInventory_cargo", RscAttributeInventory_cargo];
 uiNamespace setVariable ["AmmoBox_type", 0];
@@ -72,5 +92,6 @@ private _attrib = ['attributeSave',nil] call (uinamespace getvariable 'AmmoBox_s
 
 	_edenEnt set3DENAttribute ["ammoBox", str ((parseSimpleArray _attrib)+[1])];
 };
+*/
 
 _edenEnt
