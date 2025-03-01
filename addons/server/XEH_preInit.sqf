@@ -13,7 +13,7 @@ ADDON = true;
 
 GVAR(presets) = [
 
-["ACE Medical - General Purpose","Medizinisches Preset mit allen notwendigen (ja, auch Torniquets) Materialien zur medizinischen Versorgung.",[["ACE_packingBandage",150],["ACE_elasticBandage",150],["ACE_epinephrine",20],["ACE_morphine",20],["ACE_salineIV_1000",10],["ACE_salineIV_500",15],["ACE_salineIV_250",20],["ACE_surgicalKit",1],["ACE_EarPlugs",2],["ACE_splint",30],["ACE_tourniquet",20],["ACE_quikclot",45]]]
+["ACE Medical - General Purpose","Medizinisches Preset mit allen notwendigen (ja, auch Torniquets) Materialien zur medizinischen Versorgung.",[["ACE_packingBandage",150],["ACE_elasticBandage",150],["ACE_epinephrine",20],["ACE_morphine",20],["ACE_salineIV",10],["ACE_salineIV_500",15],["ACE_salineIV_250",20],["ACE_surgicalKit",1],["ACE_EarPlugs",2],["ACE_splint",30],["ACE_tourniquet",20],["ACE_quikclot",45],["ACE_painkillers", 20]]]
 
 #pragma hemtt flag pe23_ignore_has_include
 #if __has_include("\bwa3_weapons\config.bin")
